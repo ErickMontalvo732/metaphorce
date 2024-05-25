@@ -1,19 +1,27 @@
 package com.meraphorce.services;
 
+import com.meraphorce.dto.UserDto;
+import com.meraphorce.exceptions.GlobalExceptionHandler;
 import com.meraphorce.models.User;
 import java.util.List;
 
 public interface UserService {
 
-    User createUser(User user);
+    UserDto createUser(UserDto user);
 
-    List<User> getAllUsers();
+    List<UserDto> getAllUsers();
 
-    User getUserById(String id);
+    List<String> getAllUserNames();
+
+    UserDto getUserById(String id);
 
     void deleteUser(String id);
 
-    User updateUser(String id, User user);
+    UserDto updateUser(String id, UserDto user) throws GlobalExceptionHandler;
+
+    List<UserDto> createUsersInBatch(List<UserDto> users) throws GlobalExceptionHandler;
+
+    void deleteUsers(List<String> ids) throws GlobalExceptionHandler;
 
 }
 
